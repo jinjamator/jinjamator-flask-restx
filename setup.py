@@ -74,11 +74,11 @@ tests_require = pip("test")
 dev_require = tests_require + pip("develop")
 
 setup(
-    name="flask-restx",
-    version=__version__,
-    description=__description__,
+    name="jinjamator-flask-restx",
+    version=1.0,
+    description="flask-restx pre-release of 0.5.2",
     long_description=long_description,
-    url="https://github.com/python-restx/flask-restx",
+    url="https://github.com/jinjamtor/jinjamator-flask-restx",
     author="python-restx Authors",
     packages=find_packages(exclude=["tests", "tests.*"]),
     include_package_data=True,
