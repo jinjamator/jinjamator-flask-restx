@@ -75,8 +75,8 @@ dev_require = tests_require + pip("develop")
 
 setup(
     name="jinjamator-flask-restx",
-    version=1.0,
-    description="flask-restx pre-release of 0.5.2",
+    version=1.2,
+    description="fork of flask-restx for jinjamator",
     long_description=long_description,
     url="https://github.com/jinjamtor/jinjamator-flask-restx",
     author="python-restx Authors",
