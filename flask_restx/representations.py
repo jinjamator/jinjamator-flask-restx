@@ -4,7 +4,7 @@ except ImportError:
     from json import dumps
 
 from flask import make_response, current_app
-
+import logging
 
 def output_json(data, code, headers=None):
     """Makes a Flask response with a JSON encoded body"""
@@ -19,7 +19,16 @@ def output_json(data, code, headers=None):
 
     # always end the json dumps with a new line
     # see https://github.com/mitsuhiko/flask/pull/1262
-    dumped = dumps(data, **settings) + "\n"
+    try:
+        dumped = dumps(data, **settings) + "\n"
+    except OverflowError as e:
+        import traceback
+        from pprint import pformat
+        logging.error("Overflow",traceback.format_exc())
+        logging.debug(dir(data))
+        return data
+        
+
 
     resp = make_response(dumped, code)
     resp.headers.extend(headers or {})
